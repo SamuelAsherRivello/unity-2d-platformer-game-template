@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer
@@ -8,7 +6,7 @@ namespace Platformer
     {
         public float jumpForce;
 
-        private Rigidbody2D rigidbody;
+        private new Rigidbody2D rigidbody;
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();

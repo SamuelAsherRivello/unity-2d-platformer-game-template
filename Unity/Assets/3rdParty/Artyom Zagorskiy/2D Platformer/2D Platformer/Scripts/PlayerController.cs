@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RMC.Core.Audio;
 using UnityEngine;
 
 namespace Platformer
@@ -17,7 +18,7 @@ namespace Platformer
         private bool isGrounded;
         public Transform groundCheck;
 
-        private Rigidbody2D rigidbody;
+        private new Rigidbody2D rigidbody;
         private Animator animator;
         private GameManager gameManager;
 
@@ -49,6 +50,7 @@ namespace Platformer
             if(Input.GetKeyDown(KeyCode.Space) && isGrounded )
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                AudioManager.Instance.PlayAudioClip("Click01");
             }
             if (!isGrounded)animator.SetInteger("playerState", 2); // Turn on jump animation
 
@@ -93,6 +95,7 @@ namespace Platformer
             if (other.gameObject.tag == "Coin")
             {
                 gameManager.coinsCounter += 1;
+                AudioManager.Instance.PlayAudioClip("Purchase01");
                 Destroy(other.gameObject);
             }
         }
