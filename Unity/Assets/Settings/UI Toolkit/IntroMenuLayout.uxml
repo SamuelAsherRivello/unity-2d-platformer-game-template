@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Settings/UI%20Toolkit/IntroMenuStyles.uss?fileID=7433441132597879392&amp;guid=31a3b89146b29c3479b5fa4c4b163add&amp;type=3#IntroMenuStyles" />
+    <ui:VisualElement name="Screen" class="screen">
+        <ui:VisualElement name="Content" class="content">
+            <ui:VisualElement name="Logo" class="logo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement name="Title" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="2D &#10;Platformer&#10;" display-tooltip-when-elided="true" name="TitleLabel" class="titleLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Characters" class="characters">
+                    <ui:VisualElement name="Character" class="character" />
+                    <ui:VisualElement name="Character" class="character" style="background-image: url(&apos;project://database/Assets/3rdParty/Pixel%20Frog/Pixel%20Adventure%202/Pixel%20Adventure%202/Assets/Enemies/AngryPig/Walk%20(36x30).png?fileID=7799498315695548994&amp;guid=3315bdad18a105d49a220419bb2c813f&amp;type=3#Walk (36x30)_5&apos;);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Buttons" class="buttons">
+                <ui:Button text="Play Game" display-tooltip-when-elided="true" name="PlayGameButton" class="button" />
+                <ui:Button text="View Settings" display-tooltip-when-elided="true" name="ViewSettingsButton" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

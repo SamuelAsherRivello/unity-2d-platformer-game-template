@@ -1,0 +1,70 @@
+.screen {
+    flex-grow: 1;
+    background-color: rgb(150, 208, 243);
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-image: url('project://database/Assets/3rdParty/BayatGames/Free%20Platform%20Game%20Assets/Free%20Platform%20Game%20Assets/Backgrounds/Background/png/2048x1536/Background/Background.png?fileID=21300000&guid=f222fb00e3182624888826a2fc58db96&type=3#Background');
+}
+
+.content {
+    flex-grow: 1;
+    background-color: rgb(145, 219, 105);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.logo {
+    flex-direction: row;
+    height: 200px;
+}
+
+.buttons {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.button {
+    font-size: 67px;
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/ArialBold_SDF.asset?fileID=11400000&guid=9dad3462254aee741b44992a62fa8388&type=2#ArialBold_SDF');
+    background-image: url('project://database/Assets/3rdParty/BayatGames/Free%20Platform%20Game%20Assets/Free%20Platform%20Game%20Assets/Backgrounds/Background/png/1920x1080/Background/Background.png?fileID=21300000&guid=a52c61e4d863eb24eb1a6cec742bd3ff&type=3#Background');
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.characters {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    flex-direction: row;
+    margin-left: -65px;
+    margin-right: -238px;
+    margin-top: -150px;
+}
+
+.character {
+    background-image: url('project://database/Assets/3rdParty/Pixel%20Frog/Pixel%20Adventure%201/Pixel%20Adventure%201/Assets/Main%20Characters/Ninja%20Frog/Wall%20Jump%20(32x32).png?fileID=3974224528455760076&guid=3b332af1e6c55e94f8e5eb08fb4ab06b&type=3#Wall Jump (32x32)_0');
+    width: 300px;
+    height: 300px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.titleLabel {
+    font-size: 125px;
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/ArialBold_SDF.asset?fileID=11400000&guid=9dad3462254aee741b44992a62fa8388&type=2#ArialBold_SDF');
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
