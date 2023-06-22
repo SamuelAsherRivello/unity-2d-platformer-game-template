@@ -1,5 +1,5 @@
 
-# Unity Project Template
+# 2D Platformer Game Template
 
 This repo includes Project Structure Best Practices and C# Coding Standards for Unity.
 
