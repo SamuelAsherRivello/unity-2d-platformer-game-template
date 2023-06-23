@@ -14,12 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioMixer: {fileID: 24100000, guid: beba4f647fa65024b914e8938b1ff6e4, type: 2}
   _audioClips:
-  - {fileID: 8300000, guid: fa7da2aee901e7f4ebfd15b06d60ce1f, type: 3}
-  - {fileID: 8300000, guid: c8c1bb9aebbd9204c9ceeaeb0d4cc3f9, type: 3}
-  - {fileID: 8300000, guid: c2dd82bc76d43154dbb19a2d1a087445, type: 3}
-  - {fileID: 8300000, guid: 021dcf1c7e4136945b5e13600d1348ff, type: 3}
+  - {fileID: 8300000, guid: e792ca33b0373a54fbdb731b8c224e29, type: 3}
   - {fileID: 8300000, guid: 70696cf4a8a6ac240b85578e95d70e69, type: 3}
+  - {fileID: 8300000, guid: 23a99dd4c9c6438469b3fef4354dde79, type: 3}
+  - {fileID: 8300000, guid: c8c1bb9aebbd9204c9ceeaeb0d4cc3f9, type: 3}
   - {fileID: 8300000, guid: ebac32042c658d342910e691860660bb, type: 3}
-  - {fileID: 8300000, guid: 18232effd6cabae49ada82141d43d2bc, type: 3}
-  - {fileID: 8300000, guid: d026f270ccd176f4fa8ceeda3c3c3aaf, type: 3}
-  - {fileID: 8300000, guid: 376c4719d7bd8d64ba79973ff397a80f, type: 3}

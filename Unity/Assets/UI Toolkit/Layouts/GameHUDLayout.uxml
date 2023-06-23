@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/GameHUDStyles.uss?fileID=7433441132597879392&amp;guid=c0e932c7db758ce40bfd929a09e8760f&amp;type=3#GameHUDStyles" />
+    <ui:VisualElement name="Screen" class="screen">
+        <ui:VisualElement name="Content" class="content">
+            <ui:VisualElement name="Stats" class="stats" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement name="LivesStat" class="stat">
+                    <ui:VisualElement name="StatIcon" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Sprites/UIHeart.png?fileID=21300000&amp;guid=0889f010b2fe2d5489f3c297bf5c148e&amp;type=3#UIHeart&apos;);" />
+                    <ui:Label tabindex="-1" text="Lives" display-tooltip-when-elided="true" name="StatLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="CoinsStat" class="stat">
+                    <ui:VisualElement name="StatIcon" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Sprites/UICoin.png?fileID=21300000&amp;guid=e033f7b5219a6a44f96a53b8b54d1edf&amp;type=3#UICoin&apos;);" />
+                    <ui:Label tabindex="-1" text="Coins" display-tooltip-when-elided="true" name="StatLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

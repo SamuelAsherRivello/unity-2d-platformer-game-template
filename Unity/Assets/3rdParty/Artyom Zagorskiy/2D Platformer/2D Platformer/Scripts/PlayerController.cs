@@ -47,10 +47,10 @@ namespace Platformer
             {
                 if (isGrounded) animator.SetInteger("playerState", 0); // Turn on idle animation
             }
-            if(Input.GetKeyDown(KeyCode.Space) && isGrounded )
+            if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded )
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-                AudioManager.Instance.PlayAudioClip("Click01");
+                AudioManager.Instance.PlayAudioClip("PlayerJump01");
             }
             if (!isGrounded)animator.SetInteger("playerState", 2); // Turn on jump animation
 
@@ -83,6 +83,7 @@ namespace Platformer
             if (other.gameObject.tag == "Enemy")
             {
                 deathState = true; // Say to GameManager that player is dead
+                AudioManager.Instance.PlayAudioClip("PlayerDamage01");
             }
             else
             {
@@ -94,8 +95,8 @@ namespace Platformer
         {
             if (other.gameObject.tag == "Coin")
             {
-                gameManager.coinsCounter += 1;
-                AudioManager.Instance.PlayAudioClip("Purchase01");
+                gameManager.CoinsCurrent += 1;
+                AudioManager.Instance.PlayAudioClip("PlayerCollect01");
                 Destroy(other.gameObject);
             }
         }
