@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: UnityDefaultTextSettings
   m_EditorClassIdentifier: 
   m_Version: 
-  m_DefaultFontAsset: {fileID: 11400000, guid: 842c5f3696fbc2648ad656c14fe7acb8, type: 2}
-  m_DefaultFontAssetPath: Fonts & Materials/
-  m_FallbackFontAssets: []
+  m_DefaultFontAsset: {fileID: 11400000, guid: 1b0eceb7bebea94499934e8d38ff8976, type: 2}
+  m_DefaultFontAssetPath: Fonts
+  m_FallbackFontAssets:
+  - {fileID: 11400000, guid: 842c5f3696fbc2648ad656c14fe7acb8, type: 2}
+  - {fileID: 11400000, guid: 9dad3462254aee741b44992a62fa8388, type: 2}
+  - {fileID: 11400000, guid: a3b665d91e494c049b8bce1d55f930bf, type: 2}
+  - {fileID: 11400000, guid: 2a2adb3662e817c45af19c20a9480f59, type: 2}
+  - {fileID: 11400000, guid: c5b04b324c39c5d449b1b238c112386f, type: 2}
+  - {fileID: 11400000, guid: 1b0eceb7bebea94499934e8d38ff8976, type: 2}
+  - {fileID: 11400000, guid: 4c8f22c6a3c7d5e4b9b25ecc81ae47f6, type: 2}
   m_MatchMaterialPreset: 0
   m_MissingCharacterUnicode: 0
   m_ClearDynamicDataOnBuild: 1
