@@ -7,7 +7,7 @@
     border-bottom-right-radius: 30px;
     min-width: 200px;
     min-height: 100px;
-    -unity-font-definition: url('project://database/Assets/Art/Fonts/ArialBold_SDF.asset?fileID=11400000&guid=9dad3462254aee741b44992a62fa8388&type=2#ArialBold_SDF');
     font-size: 40px;
     color: rgb(0, 0, 0);
+    -unity-font-style: normal;
 }

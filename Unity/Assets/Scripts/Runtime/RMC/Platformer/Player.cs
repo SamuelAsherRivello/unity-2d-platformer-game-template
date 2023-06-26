@@ -1,5 +1,6 @@
 using RMC.Core.Audio;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RMC.Platformer
 {
@@ -7,7 +8,7 @@ namespace RMC.Platformer
 
 
     //  Class Attributes ----------------------------------
-
+    public class PlayerUnityEvent : UnityEvent<Player> {}
 
     /// <summary>
     /// Replace with comments...
@@ -16,12 +17,19 @@ namespace RMC.Platformer
     {
         
         //  Events ----------------------------------------
-
+        [HideInInspector]
+        public PlayerUnityEvent OnCoinCollision = new PlayerUnityEvent();
+        
+        [HideInInspector]
+        public PlayerUnityEvent OnEnemyCollision = new PlayerUnityEvent();
 
         //  Properties ------------------------------------
-
+        public GameObject DeathPlayerPrefab { get { return _deathPlayerPrefab;}}
 
         //  Fields ----------------------------------------
+
+        [SerializeField]
+        private GameObject _deathPlayerPrefab;
 
         [SerializeField]
         public float _movingSpeed = 6;
@@ -38,12 +46,6 @@ namespace RMC.Platformer
         [SerializeField]
         private Animator _animator;
         
-        [SerializeField]
-        private Scene02_Game _scene02_Game;
-
-        [HideInInspector]
-        public bool DeathState = false;
-
         private float _moveInput;
         private bool _isFacingRight = false;
         private bool _isGrounded;
@@ -51,6 +53,7 @@ namespace RMC.Platformer
         //  Unity Methods ---------------------------------
         protected void Start()
         {
+            
         }
 
         protected void FixedUpdate()
@@ -107,23 +110,19 @@ namespace RMC.Platformer
         //  Event Handlers --------------------------------
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                DeathState = true; // Say to GameManager that player is dead
-                AudioManager.Instance.PlayAudioClip("PlayerDamage01");
+                OnEnemyCollision.Invoke(this);
+
             }
-            else
-            {
-                DeathState = false;
-            }
+
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.tag == "Coin")
+            if (other.gameObject.CompareTag("Coin"))
             {
-                _scene02_Game.CoinsCurrent += 1;
-                AudioManager.Instance.PlayAudioClip("PlayerCollect01");
+                OnCoinCollision.Invoke(this);
                 Destroy(other.gameObject);
             }
         }

@@ -42,9 +42,7 @@ namespace RMC.Platformer
         [SerializeField]
         private UIDocument _UIDocument;
         
-        [SerializeField]
-        private GameObject deathPlayerPrefab;
-        
+
         [SerializeField]
         private Player _player;
         
@@ -69,21 +67,10 @@ namespace RMC.Platformer
             
             //
             _restartGameButton.RegisterCallback<ClickEvent>(RestartGameButton_OnClicked);
+            _player.OnCoinCollision.AddListener(Player_OnCoinCollision);
+            _player.OnEnemyCollision.AddListener(Player_OnEnemyCollision);
+            
         }
-
-
-        protected void Update()
-        {
-            if(_player.DeathState == true)
-            {
-                _player.gameObject.SetActive(false);
-                GameObject deathPlayer = (GameObject)Instantiate(deathPlayerPrefab, _player.transform.position, _player.transform.rotation);
-                deathPlayer.transform.localScale = new Vector3(_player.transform.localScale.x, _player.transform.localScale.y, _player.transform.localScale.z);
-                _player.DeathState = false;
-                Invoke("ReloadCurrentScene", 3);
-            }
-        }
-
 
 
         //  Methods ---------------------------------------
@@ -94,7 +81,23 @@ namespace RMC.Platformer
         
 
         //  Event Handlers --------------------------------
-        private void RestartGameButton_OnClicked(ClickEvent evt)
+        private void Player_OnCoinCollision(Player player)
+        {
+            CoinsCurrent++;
+            AudioManager.Instance.PlayAudioClip("PlayerCollect01");
+        }
+        
+        private void Player_OnEnemyCollision(Player player)
+        {
+            AudioManager.Instance.PlayAudioClip("PlayerDamage01");
+            
+            _player.gameObject.SetActive(false);
+            GameObject deathPlayer = (GameObject)Instantiate(player.DeathPlayerPrefab, _player.transform.position, _player.transform.rotation);
+            deathPlayer.transform.localScale = new Vector3(_player.transform.localScale.x, _player.transform.localScale.y, _player.transform.localScale.z);
+            Invoke("ReloadCurrentScene", 3);
+        }
+
+        private void RestartGameButton_OnClicked(ClickEvent clickEvent)
         {
             AudioManager.Instance.PlayAudioClip("UIClickYes01");
 
