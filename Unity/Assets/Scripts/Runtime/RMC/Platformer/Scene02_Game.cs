@@ -1,23 +1,15 @@
+using RMC.Core.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace RMC.MyProject.Scenes
+namespace RMC.Platformer
 {
-    //  Namespace Properties ------------------------------
-
-
-    //  Class Attributes ----------------------------------
-
-
     /// <summary>
-    /// Replace with comments...
+    /// Demonstrates the in-game player experience and UI
     /// </summary>
     public class Scene02_Game : MonoBehaviour
     {
-        //  Events ----------------------------------------
-
-
         //  Properties ------------------------------------
         public int CoinsCurrent
         {
@@ -62,6 +54,7 @@ namespace RMC.MyProject.Scenes
         private int _coinsCurrent;
         private Label _livesStatLabel;
         private Label _coinsStatLabel;
+        private Button _restartGameButton;
 
         //  Unity Methods ---------------------------------
 
@@ -69,33 +62,44 @@ namespace RMC.MyProject.Scenes
         {
             _livesStatLabel = _UIDocument.rootVisualElement.Q<VisualElement>("LivesStat").Q<Label>();
             _coinsStatLabel = _UIDocument.rootVisualElement.Q<VisualElement>("CoinsStat").Q<Label>();
+            _restartGameButton = _UIDocument.rootVisualElement.Q<Button>("RestartGameButton");
 
             LivesCurrent = LivesDefault;
             CoinsCurrent = CoinsDefault;
+            
+            //
+            _restartGameButton.RegisterCallback<ClickEvent>(RestartGameButton_OnClicked);
         }
+
 
         protected void Update()
         {
-
-            if(_player.deathState == true)
+            if(_player.DeathState == true)
             {
                 _player.gameObject.SetActive(false);
                 GameObject deathPlayer = (GameObject)Instantiate(deathPlayerPrefab, _player.transform.position, _player.transform.rotation);
                 deathPlayer.transform.localScale = new Vector3(_player.transform.localScale.x, _player.transform.localScale.y, _player.transform.localScale.z);
-                _player.deathState = false;
-                Invoke("ReloadLevel", 3);
+                _player.DeathState = false;
+                Invoke("ReloadCurrentScene", 3);
             }
         }
 
 
 
         //  Methods ---------------------------------------
-        private void ReloadLevel()
+        private void ReloadCurrentScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Scene02_Game");
         }
+        
 
         //  Event Handlers --------------------------------
+        private void RestartGameButton_OnClicked(ClickEvent evt)
+        {
+            AudioManager.Instance.PlayAudioClip("UIClickYes01");
+
+            SceneManager.LoadScene("Scene01_Intro");
+        }
     }
 }
 

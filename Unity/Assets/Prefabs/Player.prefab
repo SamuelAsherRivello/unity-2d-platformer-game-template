@@ -196,11 +196,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movingSpeed: 6
   _jumpForce: 7
-  groundCheck: {fileID: 6952628394686255622}
+  _groundCheck: {fileID: 6952628394686255622}
   _rigidbody: {fileID: 6952628394585513908}
   _animator: {fileID: 6952628394585513800}
   _scene02_Game: {fileID: 0}
-  deathState: 0
+  DeathState: 0
 --- !u!1 &6952628394686255623
 GameObject:
   m_ObjectHideFlags: 0

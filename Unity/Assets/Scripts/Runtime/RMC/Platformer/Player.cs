@@ -1,9 +1,7 @@
 using RMC.Core.Audio;
-using RMC.MyProject.Scenes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace RMC.MyProject
+namespace RMC.Platformer
 {
     //  Namespace Properties ------------------------------
 
@@ -25,13 +23,14 @@ namespace RMC.MyProject
 
         //  Fields ----------------------------------------
 
-        [FormerlySerializedAs("movingSpeed")] [SerializeField]
+        [SerializeField]
         public float _movingSpeed = 6;
         
-        [FormerlySerializedAs("jumpForce")] [SerializeField]
+        [SerializeField]
         public float _jumpForce = 7;
 
-        public Transform groundCheck;
+        [SerializeField]
+        private Transform _groundCheck;
 
         [SerializeField]
         private Rigidbody2D _rigidbody;
@@ -43,11 +42,10 @@ namespace RMC.MyProject
         private Scene02_Game _scene02_Game;
 
         [HideInInspector]
-        public bool deathState = false;
+        public bool DeathState = false;
 
         private float _moveInput;
         private bool _isFacingRight = false;
-
         private bool _isGrounded;
 
         //  Unity Methods ---------------------------------
@@ -89,7 +87,6 @@ namespace RMC.MyProject
                 Flip();
             }
         }
-
         
 
         //  Methods --------------------------------------
@@ -103,7 +100,7 @@ namespace RMC.MyProject
 
         private void CheckGround()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(_groundCheck.transform.position, 0.2f);
             _isGrounded = colliders.Length > 1;
         }
 
@@ -112,12 +109,12 @@ namespace RMC.MyProject
         {
             if (other.gameObject.tag == "Enemy")
             {
-                deathState = true; // Say to GameManager that player is dead
+                DeathState = true; // Say to GameManager that player is dead
                 AudioManager.Instance.PlayAudioClip("PlayerDamage01");
             }
             else
             {
-                deathState = false;
+                DeathState = false;
             }
         }
 
