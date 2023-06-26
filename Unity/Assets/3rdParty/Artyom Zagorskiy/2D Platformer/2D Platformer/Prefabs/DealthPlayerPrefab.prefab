@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5303887161217559599}
   - component: {fileID: 211998101267114513}
   m_Layer: 0
-  m_Name: knight_metal_death(1)
+  m_Name: DealthPlayerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

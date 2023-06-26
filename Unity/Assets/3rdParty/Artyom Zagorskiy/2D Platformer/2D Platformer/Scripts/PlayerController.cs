@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using RMC.Core.Audio;
 using UnityEngine;
 
@@ -7,8 +5,8 @@ namespace Platformer
 {
     public class PlayerController : MonoBehaviour
     {
-        public float movingSpeed;
-        public float jumpForce;
+        public float movingSpeed = 6;
+        public float jumpForce = 7;
         private float moveInput;
 
         private bool facingRight = false;

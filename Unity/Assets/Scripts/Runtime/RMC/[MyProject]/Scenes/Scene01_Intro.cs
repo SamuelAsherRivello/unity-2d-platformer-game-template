@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace RMC.MyProject.Scenes
 {
@@ -17,26 +18,16 @@ namespace RMC.MyProject.Scenes
 
 
         //  Properties ------------------------------------
-        public string SamplePublicText { get { return _samplePublicText; } set { _samplePublicText = value; }}
-
 
         //  Fields ----------------------------------------
         [SerializeField]
-        private string _samplePublicText;
-
+        private UIDocument _UIDocument;
 
         //  Unity Methods ---------------------------------
         protected void Start()
         {
             Debug.Log($"{GetType().Name}.Start()");
         }
-
-
-        protected void Update()
-        {
-
-        }
-
 
         //  Methods ---------------------------------------
         public string SamplePublicMethod(string message)

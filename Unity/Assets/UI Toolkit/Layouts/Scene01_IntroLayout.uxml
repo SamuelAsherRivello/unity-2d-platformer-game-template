@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Settings/UI%20Toolkit/IntroMenuStyles.uss?fileID=7433441132597879392&amp;guid=31a3b89146b29c3479b5fa4c4b163add&amp;type=3#IntroMenuStyles" />
-    <ui:VisualElement name="Screen" class="screen">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Scene01_IntroStyles.uss?fileID=7433441132597879392&amp;guid=31a3b89146b29c3479b5fa4c4b163add&amp;type=3#Scene01_IntroStyles" />
+    <ui:VisualElement name="Screen" class="screen" style="background-image: url(&apos;project://database/Assets/Art/Sprites/repeat.png?fileID=21300000&amp;guid=70ada66028e0b6a4d878332f432bf30d&amp;type=3#repeat&apos;); flex-grow: 1; -unity-background-image-tint-color: rgb(255, 255, 255); -unity-background-scale-mode: scale-and-crop;">
         <ui:VisualElement name="Content" class="content">
             <ui:VisualElement name="Logo" class="logo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
                 <ui:VisualElement name="Title" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
