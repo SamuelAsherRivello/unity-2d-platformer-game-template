@@ -43,6 +43,9 @@ namespace RMC.Platformer
         {
             AudioManager.Instance.PlayAudioClip("UIClickYes01");
             
+            // Reset the lives 
+            PersistentGameData.LivesCurrent = PersistentGameData.LivesMax;
+            
             SceneManager.LoadScene("Scene02_Game");
         }
         

@@ -28,12 +28,12 @@ namespace RMC.Platformer
         {
             get
             {
-                return _livesCurrent;
+                return PersistentGameData.LivesCurrent;
             }
             set
             {
-                _livesCurrent = value;
-                _livesStatLabel.text = _livesCurrent.ToString();
+                PersistentGameData.LivesCurrent = value;
+                _livesStatLabel.text = PersistentGameData.LivesCurrent.ToString();
             }
         }
 
@@ -42,18 +42,15 @@ namespace RMC.Platformer
         [SerializeField]
         private UIDocument _UIDocument;
         
-
         [SerializeField]
         private Player _player;
-        
-        private const int LivesDefault = 3;
+
         private const int CoinsDefault = 0;
-        private int _livesCurrent;
-        private int _coinsCurrent;
+        private int _coinsCurrent = -1; //Initial value
         private Label _livesStatLabel;
         private Label _coinsStatLabel;
         private Button _restartGameButton;
-
+        
         //  Unity Methods ---------------------------------
 
         protected void Start()
@@ -62,8 +59,11 @@ namespace RMC.Platformer
             _coinsStatLabel = _UIDocument.rootVisualElement.Q<VisualElement>("CoinsStat").Q<Label>();
             _restartGameButton = _UIDocument.rootVisualElement.Q<Button>("RestartGameButton");
 
-            LivesCurrent = LivesDefault;
+            // Always reset coins
             CoinsCurrent = CoinsDefault;
+            
+            // Refresh current value of lives
+            LivesCurrent = PersistentGameData.LivesCurrent;
             
             //
             _restartGameButton.RegisterCallback<ClickEvent>(RestartGameButton_OnClicked);
@@ -74,12 +74,16 @@ namespace RMC.Platformer
 
 
         //  Methods ---------------------------------------
-        private void ReloadCurrentScene()
+        private void LoadGameScene()
         {
             SceneManager.LoadScene("Scene02_Game");
         }
         
-
+        private void LoadIntroScene()
+        {
+            SceneManager.LoadScene("Scene01_Intro");
+        }
+        
         //  Event Handlers --------------------------------
         private void Player_OnCoinCollision(Player player)
         {
@@ -90,13 +94,23 @@ namespace RMC.Platformer
         private void Player_OnEnemyCollision(Player player)
         {
             AudioManager.Instance.PlayAudioClip("PlayerDamage01");
-            
+
             _player.gameObject.SetActive(false);
             GameObject deathPlayer = (GameObject)Instantiate(player.DeathPlayerPrefab, _player.transform.position, _player.transform.rotation);
             deathPlayer.transform.localScale = new Vector3(_player.transform.localScale.x, _player.transform.localScale.y, _player.transform.localScale.z);
-            Invoke("ReloadCurrentScene", 3);
+
+            LivesCurrent--;
+            if (LivesCurrent == 0)
+            {
+                Invoke("LoadIntroScene", 3);
+            }
+            else
+            {
+                Invoke("LoadGameScene", 3);
+            }
         }
 
+        
         private void RestartGameButton_OnClicked(ClickEvent clickEvent)
         {
             AudioManager.Instance.PlayAudioClip("UIClickYes01");

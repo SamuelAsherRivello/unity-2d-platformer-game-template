@@ -113,9 +113,7 @@ namespace RMC.Platformer
             if (other.gameObject.CompareTag("Enemy"))
             {
                 OnEnemyCollision.Invoke(this);
-
             }
-
         }
 
         private void OnTriggerEnter2D(Collider2D other)
