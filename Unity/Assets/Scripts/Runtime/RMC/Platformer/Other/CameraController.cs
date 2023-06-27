@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer
+namespace RMC.Platformer
 {
+    /// <summary>
+    /// Handles camera to follow the player
+    /// </summary>
     public class CameraController : MonoBehaviour
     {
         public float damping = 1.5f; // movement speed

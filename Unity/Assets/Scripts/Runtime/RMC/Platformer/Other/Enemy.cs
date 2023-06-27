@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer
+namespace RMC.Platformer
 {
-    public class EnemyAI : MonoBehaviour
+    /// <summary>
+    /// Handles enemy AI and logic
+    /// </summary>
+    public class Enemy : MonoBehaviour
     {
         public float moveSpeed = 1f; 
         public LayerMask ground;

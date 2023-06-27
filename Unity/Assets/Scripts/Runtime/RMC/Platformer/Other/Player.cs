@@ -11,7 +11,7 @@ namespace RMC.Platformer
     public class PlayerUnityEvent : UnityEvent<Player> {}
 
     /// <summary>
-    /// Replace with comments...
+    /// Handles player input and logic
     /// </summary>
     public class Player : MonoBehaviour
     {

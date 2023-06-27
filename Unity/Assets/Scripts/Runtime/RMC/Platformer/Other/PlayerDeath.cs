@@ -1,8 +1,11 @@
 using UnityEngine;
 
-namespace Platformer
+namespace RMC.Platformer
 {
-    public class PlayerDeathState : MonoBehaviour
+    /// <summary>
+    /// Animates the player upon death
+    /// </summary>
+    public class PlayerDeath : MonoBehaviour
     {
         public float jumpForce;
 

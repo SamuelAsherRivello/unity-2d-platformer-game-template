@@ -1,5 +1,3 @@
-using UnityEditor;
-using UnityEngine;
 
 namespace RMC.Templates
 {
